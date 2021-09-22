@@ -93,6 +93,8 @@ test:
         "reinterpretarray", "syntax", "corelogging", "missing", "asyncmap",
         "smallarrayshrink", "download"])' # all except stdlib, add "opaque_closure", "filesystem" with 1.7
     - julia -e 'Base.runtests(["math"])'  # [not osx] due to failure on math.jl:296, pre-haswell processor
+    - julia -e 'import Pkg;Pkg.add("LibSSH2_jll")'
+    - julia -e 'import Pkg;Pkg.add("Sundials")'
   requires:
     - perl
 
